@@ -12,8 +12,36 @@ function writePassword() {
 function generatePassword() {
   var passwordLength = prompt('What length of password would you like? \nPlease enter a number from 8-128');
   var invalid = ('Selection was invalid');
-  var noSelect = ('No selection was made')
+  var noSelect = ('No selection was made');
+
   
+
+  if (passwordLength === "") {
+    alert('Please enter a password length')
+    passwordLength = prompt('Please enter a number between 8-128');
+    }  else if (passwordLength > 128) {
+      alert('Selected password length is too long. Please choose a shorter password.')
+    passwordLength = prompt('What length of password would you like? \nPlease enter a number between 8-128');
+    } else if (passwordLength < 8) {
+      alert('Selected password length is too short. Please choose a longer password.');
+    passwordLength = prompt('What length of password would you like? \nPlease enter a number between 8-128'); 
+    } else if (isNaN(passwordLength)) {
+      alert('Please enter a number only');
+      passwordLength = prompt('What length of password would you like? \nPlease enter a number between 8-128');
+    }
+  
+    if (passwordLength === "") {
+      return noSelect
+    }  else if (passwordLength > 128) {
+      return invalid
+    } else if (passwordLength < 8) {
+      return invalid 
+    } else if (isNaN(passwordLength)) {
+      return invalid
+    }
+  
+
+  /*
   if (passwordLength === '') {
     alert('Please enter a password length')
     passwordLength = prompt('Please enter a number between 8-128');
@@ -26,15 +54,15 @@ function generatePassword() {
     passwordLength = prompt('What length of password would you like? \nPlease enter a number between 8-128');
     if (passwordLength < 8){
       return invalid
+    } else (passwordLength === ''); {
+      return noSelect
     }
   };
   if (passwordLength > 128) {
     alert('Selected password length is too long. Please choose a shorter password.')
     passwordLength = prompt('What length of password would you like? \nPlease enter a number between 8-128');
-    if (passwordLength > 128) {
-      return invalid
-    }
   };
+*/
   
 
 
