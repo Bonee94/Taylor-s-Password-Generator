@@ -9,13 +9,14 @@ function writePassword() {
   passwordText.value = password;
 }
 
+// Logic to generate password
 function generatePassword() {
   var passwordLength = prompt('What length of password would you like? \nPlease enter a number from 8-128');
   var invalid = ('Selection was invalid');
   var noSelect = ('No selection was made');
 
   
-
+//First length check for password
   if (passwordLength === "") {
     alert('Please enter a password length')
     passwordLength = prompt('Please enter a number between 8-128');
@@ -29,7 +30,8 @@ function generatePassword() {
       alert('Please enter a number only');
       passwordLength = prompt('What length of password would you like? \nPlease enter a number between 8-128');
     }
-  
+    
+// Second length check for password and will return invalid
     if (passwordLength === "") {
       return noSelect
     }  else if (passwordLength > 128) {
@@ -40,31 +42,6 @@ function generatePassword() {
       return invalid
     }
   
-
-  /*
-  if (passwordLength === '') {
-    alert('Please enter a password length')
-    passwordLength = prompt('Please enter a number between 8-128');
-    if (passwordLength === '') {
-      return noSelect
-    }
-  }
-  if (passwordLength < 8) {
-    alert('Selected password length is too short. Please choose a longer password.');
-    passwordLength = prompt('What length of password would you like? \nPlease enter a number between 8-128');
-    if (passwordLength < 8){
-      return invalid
-    } else (passwordLength === ''); {
-      return noSelect
-    }
-  };
-  if (passwordLength > 128) {
-    alert('Selected password length is too long. Please choose a shorter password.')
-    passwordLength = prompt('What length of password would you like? \nPlease enter a number between 8-128');
-  };
-*/
-  
-
 
   var passwordUppercase = confirm('Would you like to use uppercase characters?');
   var passwordLowercase = confirm('Would you like to use lowerscase characters?');
