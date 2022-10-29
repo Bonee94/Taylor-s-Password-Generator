@@ -8,6 +8,22 @@ function writePassword() {
 
   passwordText.value = password;
 }
+//All Split character strings and put into array-----------------
+var availableUppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var availableLowercase = 'abcdefghijklmnopqrstuvwxyz';
+var availableNumbers = '0123456789';
+var availableSpecial = '!"#$%&()*+,-./:;<=>?@[\]^_`{|}~';
+var upperSplit = availableUppercase.split('');
+var lowerSplit = availableLowercase.split('');
+var numberSplit = availableNumbers.split('');
+var specailSplit = availableSpecial.split('')
+
+var characters = [upperSplit, lowerSplit, numberSplit, specailSplit]
+console.log(characters)
+//----------------------------------------------------------------
+
+
+
 
 // Logic to generate password
 function generatePassword() {
@@ -48,6 +64,7 @@ function generatePassword() {
   var passwordNumeric = confirm('Would you like to use numeric characters?');
   var passworddSpecial = confirm('Lastly, would you like to use special characters?');
 }
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword)
