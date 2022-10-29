@@ -8,57 +8,72 @@ function writePassword() {
 
   passwordText.value = password;
 }
-//All Split character strings and put into arrays-----------------
-var availableUppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-var availableLowercase = 'abcdefghijklmnopqrstuvwxyz'.split('');
-var availableNumbers = '0123456789'.split('');
-var availableSpecial = '!"#$%&()*+,-./:;<=>?@[\]^_`{|}~'.split('');
-
-
-
-
-
+//All character strings to put into arrays-----------------
+var availableUppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var availableLowercase = 'abcdefghijklmnopqrstuvwxyz';
+var availableNumbers = '0123456789';
+var availableSpecial = '!"#$%&()*+,-./:;<=>?@[\]^_`{|}~';
 
 
 // Logic to generate password
 function generatePassword() {
   var passwordLength = prompt('What length of password would you like? \nPlease enter a number from 8-128');
-  var finalString = "";
+  var contString = "";
+  
+
 
   
 //First length check for password
-  if (passwordLength === "" || passwordLength > 128 || passwordLength < 8 || (isNaN(passwordLength))) {
-    if (passwordLength === "" ) {
+  if (passwordLength === "" || passwordLength > 128 || passwordLength < 8 || passwordLength === null|| (isNaN(passwordLength))) {
+    if (passwordLength === null) {
+      return
+    }
+      else if (passwordLength === "" ) {
     alert('Please enter a password length')
     generatePassword()
-    }  else if (passwordLength > 128) {
+    return
+    } else if (passwordLength > 128) {
       alert('Selected password length is too long. Please choose a shorter password.')
       generatePassword()
+      return
     } else if (passwordLength < 8) {
       alert('Selected password length is too short. Please choose a longer password.');
       generatePassword()
+      return
     } else if (isNaN(passwordLength)) {
       alert('Please enter a number only');
       generatePassword()
-    }
+      return
+    } return
     } else {
-      if (var passwordUppercase = confirm('Would you like to use uppercase characters?')) {
+      if (confirm('Would you like to use uppercase characters?')) {
+        contString = contString.concat(availableUppercase)
+      }
+      if (confirm('Would you like to use lowerscase characters?')) {
+        contString = contString.concat(availableLowercase)
+      }
+      if (confirm('Would you like to use numeric characters?')) {
+        contString = contString.concat(availableNumbers)
+      }
+      if (confirm('Lastly, would you like to use special characters?')) {
+        contString = contString.concat(availableSpecial)
+      }
+    }
+    var finalPass = "";
+    var partPass = "";
+    console.log(passwordLength)
+    var finalArray = contString.split('');
+    console.log(finalArray)
 
-      }
-      if (var passwordLowercase = confirm('Would you like to use lowerscase characters?')) {
-        
-      }
-      if (var passwordNumeric = confirm('Would you like to use numeric characters?')) {
-        
-      }
-      if (var passworddSpecial = confirm('Lastly, would you like to use special characters?')) {
-        
-      }
-      
-      
-      
-  }
-  
+    for ( let i=0; i < passwordLength; i++){
+      var random = Math.floor(Math.random() * finalArray.length);
+      partPass = finalArray[random];
+      finalPass += partPass
+    }
+
+  console.log("This is the generated password " + finalPass) 
+  password = finalPass
+  return password
 }
 
 
