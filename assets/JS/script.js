@@ -5,9 +5,9 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
+  passwordText.value = password; 
 }
+
 //All character strings to put into arrays-----------------
 var availableUppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var availableLowercase = 'abcdefghijklmnopqrstuvwxyz';
@@ -15,14 +15,14 @@ var availableNumbers = '0123456789';
 var availableSpecial = '!"#$%&()*+,-./:;<=>?@[\]^_`{|}~';
 
 
+
 // Logic to generate password
 function generatePassword() {
   var passwordLength = prompt('What length of password would you like? \nPlease enter a number from 8-128');
+  var finalPass = "";
   var contString = "";
-  
+  var tryAgain = "Please try again!";
 
-
-  
 //First length check for password
   if (passwordLength === "" || passwordLength > 128 || passwordLength < 8 || passwordLength === null|| (isNaN(passwordLength))) {
     if (passwordLength === null) {
@@ -44,12 +44,11 @@ function generatePassword() {
       alert('Please enter a number only');
       generatePassword()
       return
-    } return
-    } else {
+    }} else {
       if (confirm('Would you like to use uppercase characters?')) {
         contString = contString.concat(availableUppercase)
       }
-      if (confirm('Would you like to use lowerscase characters?')) {
+      if (confirm('What about lowerscase characters?')) {
         contString = contString.concat(availableLowercase)
       }
       if (confirm('Would you like to use numeric characters?')) {
@@ -58,8 +57,13 @@ function generatePassword() {
       if (confirm('Lastly, would you like to use special characters?')) {
         contString = contString.concat(availableSpecial)
       }
+      if (contString === ""){
+        alert('Please select at least one character type.')
+        return tryAgain
+      }
     }
-    var finalPass = "";
+    
+    
     var partPass = "";
     console.log(passwordLength)
     var finalArray = contString.split('');
@@ -73,10 +77,8 @@ function generatePassword() {
 
   console.log("This is the generated password " + finalPass) 
   password = finalPass
-  return password
+  return finalPass
 }
-
-
 
 
 
