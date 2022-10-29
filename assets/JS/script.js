@@ -8,19 +8,14 @@ function writePassword() {
 
   passwordText.value = password;
 }
-//All Split character strings and put into array-----------------
-var availableUppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-var availableLowercase = 'abcdefghijklmnopqrstuvwxyz';
-var availableNumbers = '0123456789';
-var availableSpecial = '!"#$%&()*+,-./:;<=>?@[\]^_`{|}~';
-var upperSplit = availableUppercase.split('');
-var lowerSplit = availableLowercase.split('');
-var numberSplit = availableNumbers.split('');
-var specailSplit = availableSpecial.split('')
+//All Split character strings and put into arrays-----------------
+var availableUppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+var availableLowercase = 'abcdefghijklmnopqrstuvwxyz'.split('');
+var availableNumbers = '0123456789'.split('');
+var availableSpecial = '!"#$%&()*+,-./:;<=>?@[\]^_`{|}~'.split('');
 
-var characters = [upperSplit, lowerSplit, numberSplit, specailSplit]
-console.log(characters)
-//----------------------------------------------------------------
+
+
 
 
 
@@ -28,42 +23,46 @@ console.log(characters)
 // Logic to generate password
 function generatePassword() {
   var passwordLength = prompt('What length of password would you like? \nPlease enter a number from 8-128');
-  var invalid = ('Selection was invalid');
-  var noSelect = ('No selection was made');
+  var finalString = "";
 
   
 //First length check for password
-  if (passwordLength === "") {
+  if (passwordLength === "" || passwordLength > 128 || passwordLength < 8 || (isNaN(passwordLength))) {
+    if (passwordLength === "" ) {
     alert('Please enter a password length')
-    passwordLength = prompt('Please enter a number between 8-128');
+    generatePassword()
     }  else if (passwordLength > 128) {
       alert('Selected password length is too long. Please choose a shorter password.')
-    passwordLength = prompt('What length of password would you like? \nPlease enter a number between 8-128');
+      generatePassword()
     } else if (passwordLength < 8) {
       alert('Selected password length is too short. Please choose a longer password.');
-    passwordLength = prompt('What length of password would you like? \nPlease enter a number between 8-128'); 
+      generatePassword()
     } else if (isNaN(passwordLength)) {
       alert('Please enter a number only');
-      passwordLength = prompt('What length of password would you like? \nPlease enter a number between 8-128');
+      generatePassword()
     }
-    
-// Second length check for password and will return invalid
-    if (passwordLength === "") {
-      return noSelect
-    }  else if (passwordLength > 128) {
-      return invalid
-    } else if (passwordLength < 8) {
-      return invalid 
-    } else if (isNaN(passwordLength)) {
-      return invalid
-    }
-  
+    } else {
+      if (var passwordUppercase = confirm('Would you like to use uppercase characters?')) {
 
-  var passwordUppercase = confirm('Would you like to use uppercase characters?');
-  var passwordLowercase = confirm('Would you like to use lowerscase characters?');
-  var passwordNumeric = confirm('Would you like to use numeric characters?');
-  var passworddSpecial = confirm('Lastly, would you like to use special characters?');
+      }
+      if (var passwordLowercase = confirm('Would you like to use lowerscase characters?')) {
+        
+      }
+      if (var passwordNumeric = confirm('Would you like to use numeric characters?')) {
+        
+      }
+      if (var passworddSpecial = confirm('Lastly, would you like to use special characters?')) {
+        
+      }
+      
+      
+      
+  }
+  
 }
+
+
+
 
 
 // Add event listener to generate button
