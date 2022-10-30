@@ -9,7 +9,7 @@ function writePassword() {
   while (runAgain) {
     var passwordLength = validatePrompt();
     console.log(`before if statement: ${passwordLength}`)
-    
+
     if (passwordLength === null) {
       runAgain = false;
       password = ''
