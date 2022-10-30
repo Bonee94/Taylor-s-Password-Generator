@@ -27,3 +27,10 @@ THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
+
+## Live Application Screenshot
+
+![](./assets/images/Screenshot%202022-10-30%20110338.png)
+
+## Deployed URL
+* 
