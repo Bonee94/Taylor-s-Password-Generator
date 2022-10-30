@@ -33,4 +33,4 @@ THEN the password is either displayed in an alert or written to the page
 ![](./assets/images/Screenshot%202022-10-30%20110338.png)
 
 ## Deployed URL
-* 
+* https://bonee94.github.io/Taylor-s-Password-Generator/
